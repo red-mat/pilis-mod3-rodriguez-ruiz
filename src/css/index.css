@@ -1,4 +1,20 @@
-body {
-  
+/* import font family */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+
+:root{
+    /* paleta de colores */
+    --dark-color:#251B37;
+    --dark-contrast:#372948;
+    
+    --light-color:#FFECEF;
+    --light-contrast:#FFCACA;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  
+  color: var(--light-color);
+  font-family: 'Lato', sans-serif;
+  background-color: var(--dark-color);
+}
