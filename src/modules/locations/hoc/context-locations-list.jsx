@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import {LocationsContext} from '../context/locations-context';
 
 
-const withContextLocationsData = (Comp) => {
+const withContextLocationsList = (Comp) => {
     const CompWithLocations = (props) => { 
         const {locations} = useContext(LocationsContext);
         
@@ -11,4 +11,4 @@ const withContextLocationsData = (Comp) => {
   
      return CompWithLocations
 }
-export default withContextLocationsData;
+export default withContextLocationsList;
