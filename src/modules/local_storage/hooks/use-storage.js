@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { getStorageItem, setStorageItem } from '../services/package';
 
-export const initState = (key, default_value) => {
+const initState = (key, default_value) => {
   try {
     return getStorageItem(key);
   } catch (error) {
@@ -19,7 +19,7 @@ const useLocalStorage = (key, default_value) => {
 
   useEffect(() => {
     setStorageItem(key, item);
-    if (item === null) localStorage.removeItem(key);
+    (item === null) && localStorage.removeItem(key);
   }, [item]);
 
   return [item, setItem, clearItem];
