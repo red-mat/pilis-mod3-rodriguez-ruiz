@@ -2,9 +2,9 @@
     custom hooks que retorna los datos del clima de open-meteo
 */
 import { useEffect, useState } from 'react';
-import {fetchForecast} from '../services/package';
+import { fetchForecast } from '../services/package';
 
-const DEFAULT_TIMEZONE='America/Argentina/Jujuy'
+const DEFAULT_TIMEZONE = 'America/Argentina/Jujuy'
 
 const DEFAULT_STATE = {
   loading: true,
@@ -16,19 +16,21 @@ const SAFE_STATE = {
   error: { state: false, message: '' },
 };
 
-const errorState = (e)=>({
-  loading:false,
-  error:{
-    state:true,
-    message:e
+const errorState = (e) => ({
+  loading: false,
+  error: {
+    state: true,
+    message: e
   }
 })
 
 const useWeatherMeteo = (
-  latitude,
-  longitude,
-  current_weather=true,
-  timezone=DEFAULT_TIMEZONE
+  {
+    latitude,
+    longitude,
+    current_weather = true,
+    timezone = DEFAULT_TIMEZONE 
+  }
 ) => {
   const [weather, setWeather] = useState({});
   const [state, setState] = useState(DEFAULT_STATE);
@@ -36,7 +38,7 @@ const useWeatherMeteo = (
   useEffect(() => {
     // Restaurar estado por defecto
     setState(DEFAULT_STATE)
-    
+
     // cargar datos
     fetchForecast(
       latitude,
@@ -48,10 +50,10 @@ const useWeatherMeteo = (
       setState(SAFE_STATE)
     }).catch((e) => setState(errorState(e)))
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [latitude, longitude]);
 
-  return [weather, state];
+  return {weather, state};
 }
 
 export default useWeatherMeteo;
