@@ -1,25 +1,23 @@
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Col, Modal } from 'react-bootstrap';
 import './LocationCard.css';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { useState } from 'react';
-import { weatherData } from "../weatherData";
+import { useContext, useState } from 'react';
+import { WeatherListContext } from '../../context/weatherListContext';
 
 const LocationCard = ({ locationCard }) => {
     const { id, location, latitude, longitude, temperature, windSpeed } = locationCard;
     const [show, setShow] = useState(false);
+    const { weatherList, setWeatherList } = useContext(WeatherListContext);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const [list, setList] = useState(weatherData);
     function handleRemove(id) {
-        const newList = list.filter((item) => item.id !== id);
+        const newList = weatherList.filter((item) => item.id !== id);
 
-        setList(newList);
-        console.log(' lista filtrada: ' + newList.length);
+        setWeatherList(newList);       
     }
 
     return (
@@ -34,8 +32,8 @@ const LocationCard = ({ locationCard }) => {
                     <Card.Text> Longitud: {longitude}</Card.Text>
                     <Card.Text> Temperature: {temperature}</Card.Text>
                     <Card.Text> Wind Speed: {windSpeed}</Card.Text>
-                    <Card.Footer>
-                        <Button variant="danger" size="lg" onClick={handleShow}><RiDeleteBin6Line /></Button>
+                    <Card.Footer className='d-flex justify-content-center'>
+                        <Button variant="danger" size="lg" onClick={handleShow} className='d-flex align-items-center'><RiDeleteBin6Line /></Button>
                         <Modal
                             show={show}
                             onHide={handleClose}>

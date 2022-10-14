@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import LocationCards from "../LocationCard/LocationCards";
 import './home.css';
 
-const Home = ({ data }) => {
+const Home = () => {
     return (
         <div className="text-center">
             <h1>Lista de ubicaciones</h1>
@@ -10,7 +10,7 @@ const Home = ({ data }) => {
                 <Button variant="primary">Agregar ubicación</Button>
             </div>
             <div>
-                <LocationCards data={data} />
+                <LocationCards />
             </div>
         </div>
     )

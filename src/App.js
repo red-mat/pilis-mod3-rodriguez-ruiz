@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 import './css/App.css';
-import LocationCards from './components/LocationCard/LocationCards';
-import { useWeatherMeteo } from './modules/weather_open_meteo/hooks/package';
 import { getData } from './service';
 import Home from './components/Home/home';
-
+import { WeatherListContext } from './context/weatherListContext';
 
 //import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import NewLocation from './components/new-location/new-location';
@@ -30,25 +28,27 @@ function App() {
       .catch((err) => console.log(err));
   }, [])
 
-  
-  return (
-    <div className="App">
-      <h1 className='title text-center'>Home</h1>
-      {/* <button onClick={() => setData(data)}></button> */}
 
-      {/* <div><p>Datos del clima latitud: {weather.latitude}</p></div>
+  return (
+    <WeatherListContext.Provider value={{weatherList: data, setWeatherList: setData}}>
+      <div className="App">
+        <h1 className='title text-center'>Home</h1>
+        {/* <button onClick={() => setData(data)}></button> */}
+
+        {/* <div><p>Datos del clima latitud: {weather.latitude}</p></div>
       <div><p>Datos del clima longitud: {weather.longitude}</p></div>
       <div><p>Datos del clima temperatura: {weather.current_weather.temperature}</p></div>
       <div><p>Datos del clima velocidad: {weather.current_weather.windspeed}</p></div> */}
-      <Home data={data} />
-      {/* <LocationCards data={data} /> */}
-      {/*  <Router>
+        <Home />
+        {/* <LocationCards data={data} /> */}
+        {/*  <Router>
         <Routes>
           <Route path="/new-location" element={<NewLocation />}></Route>
           <Route path="/" element={<Home />}></Route>
         </Routes>
       </Router> */}
-    </div>
+      </div>
+    </WeatherListContext.Provider>
   );
 };
 

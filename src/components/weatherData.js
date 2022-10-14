@@ -33,7 +33,7 @@ export const weatherData = [
     },
     {
         "id": 5,
-        "location": "Tucuman",
+        "location": "Santiago del Estero",
         "latitude": 52.25,
         "longitude": 10.25,
         "temperature": 25,
@@ -41,7 +41,7 @@ export const weatherData = [
     },
     {
         "id": 6,
-        "location": "Tucuman",
+        "location": "Córdoba",
         "latitude": 52.25,
         "longitude": 10.25,
         "temperature": 25,
@@ -49,7 +49,7 @@ export const weatherData = [
     },
     {
         "id": 7,
-        "location": "Tucuman",
+        "location": "Corrientes",
         "latitude": 52.25,
         "longitude": 10.25,
         "temperature": 25,
@@ -57,7 +57,15 @@ export const weatherData = [
     },
     {
         "id": 8,
-        "location": "Tucuman",
+        "location": "Chaco",
+        "latitude": 52.25,
+        "longitude": 10.25,
+        "temperature": 25,
+        "windSpeed": 10,
+    },
+    {
+        "id": 9,
+        "location": "Santa fe",
         "latitude": 52.25,
         "longitude": 10.25,
         "temperature": 25,
