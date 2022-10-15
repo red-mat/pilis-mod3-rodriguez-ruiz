@@ -1,5 +1,5 @@
 import AddLocation from "./addLoction/add-location";
-import Home from "./Home/home";
+import Home from "./home/home";
 import Navigation from "./navigation/navigation";
 
 export {
