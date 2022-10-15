@@ -3,22 +3,14 @@ import Card from 'react-bootstrap/Card';
 import { Col, Modal } from 'react-bootstrap';
 import './LocationCard.css';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import { useContext, useState } from 'react';
-import { WeatherListContext } from '../../context/weatherListContext';
+import {  useState } from 'react';
 
-const LocationCard = ({ locationCard }) => {
+const LocationCard = ({ locationCard, handleRemove }) => {
     const { id, location, latitude, longitude, temperature, windSpeed } = locationCard;
     const [show, setShow] = useState(false);
-    const { weatherList, setWeatherList } = useContext(WeatherListContext);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
-    function handleRemove(id) {
-        const newList = weatherList.filter((item) => item.id !== id);
-
-        setWeatherList(newList);       
-    }
 
     return (
         <Col>

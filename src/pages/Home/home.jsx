@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import LocationCards from "../LocationCard/LocationCards";
+import LocationCards from "../../components/LocationCard/LocationCards";
 import './home.css';
 
 const Home = () => {
