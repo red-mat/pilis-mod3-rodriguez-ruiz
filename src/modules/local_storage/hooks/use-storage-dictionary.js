@@ -1,3 +1,4 @@
+import { get } from 'react-hook-form';
 import useLocalStorage from './use-storage';
 
 const useDictionaryStorage = (key) => {

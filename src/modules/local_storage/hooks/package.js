@@ -1,2 +1,4 @@
 import useLocalStorage from "./use-storage";
-export {useLocalStorage}
+import useDictionaryStorage from './use-storage-dictionary';
+
+export {useLocalStorage, useDictionaryStorage}
