@@ -1,0 +1,24 @@
+.button{   
+    all: unset;
+    --transition-time: 0.35s;
+    bottom: unset;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--dark-color);
+    box-shadow: 0 0 10px var(--light-color);
+    border-radius: 10px;
+
+    padding: 3%;
+
+    transition:
+        color var(--transition-time),
+        background-color var(--transition-time);
+}
+
+.button:hover{
+    background-color: var(--light-color);
+    color: var(--dark-contrast);
+}
