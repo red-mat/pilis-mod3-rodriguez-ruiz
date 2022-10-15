@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Col, Modal } from 'react-bootstrap';
 import { RiDeleteBin6Line } from 'react-icons/ri';
-import {  useState } from 'react';
+import { useState } from 'react';
+import { weatherData } from '../../data/weatherData';
 
 const LocationCard = ({ locationCard, handleRemove }) => {
     const { id, location, latitude, longitude, temperature, windSpeed } = locationCard;
@@ -12,6 +13,12 @@ const LocationCard = ({ locationCard, handleRemove }) => {
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [setNewList] = useState(weatherData);
+    function handleRemove(id) {
+        const newList = weatherData.filter((item) => item.id !== id);
+        setNewList(newList);
+    }
 
     return (
         <Col>
