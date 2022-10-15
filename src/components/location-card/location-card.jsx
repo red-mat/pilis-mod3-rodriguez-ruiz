@@ -6,23 +6,25 @@ import { Container } from '../package';
 import {useWeatherMeteo} from '../../modules/weather_open_meteo/hooks/package'   
 
 const LocationCard = ({name, latitude, longitude}) => { 
-    const  [weather, state] = useWeatherMeteo()
+    const  [weather, state] = useWeatherMeteo(latitude, longitude)
 
     return (
         <Container modifier='container--location-card'>
-        <p>{name}</p>
-        <p>{latitude}</p>
-        <p>{longitude}</p>
-
-        {state.loading || '...loading'}
-        
-        {state.error.state?
+        <h1>Lugar: {name}</h1>
+        <ul>
+            <li>{latitude}</li>
+            <li>{longitude}</li>
+        {state.loading?
+        '...loading':
+        state.error.state?
         'fallo al cargar los datos':
         <>
-            <p>{weather.current_weather.temperature}</p>
-            <p>{weather.current_weather.windspeed}</p>
+            <li>{weather.current_weather.temperature}</li>
+            <li>{weather.current_weather.windspeed}</li>
         </>
         }
+        </ul>
+        {console.log(state)}
         </Container>
     )
  }
