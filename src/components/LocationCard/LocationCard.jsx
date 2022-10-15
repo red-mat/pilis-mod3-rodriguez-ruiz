@@ -1,7 +1,8 @@
+import './LocationCard.css';
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Col, Modal } from 'react-bootstrap';
-import './LocationCard.css';
 import { RiDeleteBin6Line } from 'react-icons/ri';
 import {  useState } from 'react';
 

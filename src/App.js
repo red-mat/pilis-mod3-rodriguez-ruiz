@@ -1,56 +1,19 @@
-import { useEffect, useState } from 'react';
 import './css/App.css';
-import { getData } from './service';
-import Home from './components/Home/home';
-import { WeatherListContext } from './context/weatherListContext';
 
-//import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import NewLocation from './components/new-location/new-location';
-//import Home from './pages/home/home.jsx';
+import { Route, Routes } from 'react-router-dom';
+import { Navigation, Home, AddLocation } from './pages/package';
+
 function App() {
-  const [data, setData] = useState([]);
-
-  // Consumo del hook para obtener un dato del clima 
-  // const { weather, state } = useWeatherMeteo(
-  //   {
-  //     latitude: 22,
-  //     longitude: 33      
-  //   }
-  // );
-
-  // Consumo de lista de datos del clima ficticia
-  useEffect(() => {
-    getData()
-      .then((data) => {
-        console.log('Datos del clima: ' + data);
-        setData(data);
-      })
-      .catch((err) => console.log(err));
-  }, [])
-
-
   return (
-    <WeatherListContext.Provider value={{weatherList: data, setWeatherList: setData}}>
-      <div className="App">
-        <h1 className='title text-center'>Home</h1>
-        {/* <button onClick={() => setData(data)}></button> */}
-
-        {/* <div><p>Datos del clima latitud: {weather.latitude}</p></div>
-      <div><p>Datos del clima longitud: {weather.longitude}</p></div>
-      <div><p>Datos del clima temperatura: {weather.current_weather.temperature}</p></div>
-      <div><p>Datos del clima velocidad: {weather.current_weather.windspeed}</p></div> */}
-        <Home />
-        {/* <LocationCards data={data} /> */}
-        {/*  <Router>
-        <Routes>
-          <Route path="/new-location" element={<NewLocation />}></Route>
-          <Route path="/" element={<Home />}></Route>
-        </Routes>
-      </Router> */}
-      </div>
-    </WeatherListContext.Provider>
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<Navigation />}>
+          <Route index element={<Home />} />
+          {/* <Route path='add-location' element={<AddLocation />} /> */}
+        </Route>
+      </Routes>
+    </div>
   );
-};
-
+}
 
 export default App;
