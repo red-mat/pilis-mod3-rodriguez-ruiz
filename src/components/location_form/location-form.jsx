@@ -1,7 +1,7 @@
 import './location-form.css';
 
 import { useForm } from 'react-hook-form';
-import { Container, Button, ErrorMessage } from '../package';
+import { Container, Button } from '../package';
 
 const parse_data = (data) => {
   return {

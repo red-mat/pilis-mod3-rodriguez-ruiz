@@ -24,7 +24,6 @@ const LocationCard = ({name, latitude, longitude}) => {
         </>
         }
         </ul>
-        {console.log(state)}
         </Container>
     )
  }
