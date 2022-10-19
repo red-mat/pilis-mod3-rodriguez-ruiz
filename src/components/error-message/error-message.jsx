@@ -1,23 +1,19 @@
 import './error-message.css';
 
-import { useEffect, useState } from 'react';
 import {Container, Button} from '../package';
 import { FiXCircle } from "react-icons/fi";
 
 
-const ErrorMessage = ({children, isError}) => { 
-    const [visible, setVisible] = useState(false);
-    useEffect(() => {
-      setVisible(isError)
-    }
-    ,[isError])
-
-    return visible&&(
+const ErrorMessage = ({error}) => { 
+  
+    return error.message&&(
       <Container modifier='container--error'>
-        <Button  modifier='button--error' onClick={() => setVisible(false)}>
+        <Button  modifier='button--error' onClick={error.clear}>
             <FiXCircle size={'0.70em'}/>
         </Button>
-        {children}
+        <p>
+          {error.message}
+        </p>
       </Container>
     )
 

@@ -1,5 +1,17 @@
 .container--location-card{
     flex-direction: column;
+    position: relative;
     margin: 20px;
     padding: 20px;
+}
+.button--error{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+
+    padding: 3%;
+    margin: 3%;
+
+    color: var(--light-color);
+
 }

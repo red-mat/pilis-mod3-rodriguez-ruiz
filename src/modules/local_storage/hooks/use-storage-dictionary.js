@@ -14,10 +14,11 @@ const useDictionaryStorage = (key) => {
     });
   };
   const dell = (key) => {
-    if (dic[`${key}`])  throw new Error('not exist item');
+    if (!dic[`${key}`])  throw new Error('not exist item');
 
     setDic((dic) => {
-      let {key, ...newDic} = dic
+      const newDic = {...dic}
+      delete newDic[`${key}`];
       return newDic;
     })  
   }

@@ -20,7 +20,7 @@ const errorState = (e)=>({
   loading:false,
   error:{
     state:true,
-    message:e
+    message:e.message
   }
 })
 
