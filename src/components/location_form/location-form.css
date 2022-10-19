@@ -1,0 +1,12 @@
+.container--form{
+    padding: 40px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.form-button{
+    margin-top: 20px;
+}

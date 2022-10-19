@@ -1,0 +1,30 @@
+.container--error{
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.70;
+
+
+    left: 43.5%;
+    top: 20%;
+    color: var(--light-contrast);
+    padding: 3%;
+    box-shadow: 0 0 20px var(--light-contrast);
+
+    transition: opacity .5s;
+}
+.container--error:hover{
+    opacity: 100;
+}
+.button--error{
+    position: absolute;
+    right: 5%;
+    top: 5%;
+
+    padding: 3%;
+    margin: 3%;
+
+    color: var(--light-color);
+
+}
+

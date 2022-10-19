@@ -1,19 +1,11 @@
-import { Button } from "react-bootstrap";
-import LocationCards from "../../components/LocationCard/LocationCards";
-import './home.css';
+
+import {LocationCard} from '../../components/package'
 
 const Home = () => {
-    return (
-        <div className="text-center">
-            <h1>Lista de ubicaciones</h1>
-            <div className="header p-5">
-                <Button variant="primary">Agregar ubicación</Button>
-            </div>
-            <div>
-                <LocationCards />
-            </div>
-        </div>
-    )
+    return (<main>
+        <LocationCard latitude={22.5} longitude={23.5} name='san jose'/>
+    </main>)
+
 }
 
 export default Home;

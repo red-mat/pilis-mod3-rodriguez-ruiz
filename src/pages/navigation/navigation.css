@@ -1,0 +1,8 @@
+.header-app{
+    margin: 10px;
+}
+
+.nav-container{
+    display: flex;
+    flex-direction: row;
+}
